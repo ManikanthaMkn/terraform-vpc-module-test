@@ -1,6 +1,11 @@
 module "vpc" {
-    source = "../terraform-aws-vpc"
-    project = "roboshop"
-    environment = "dev"
-    public_subnet_cidr = ["10.0.1.0/24", "10.0.2.0/24"]
+  source = "../terraform-aws-vpc"
+  /*  # project = "roboshop"
+    # environment = "dev"
+    # public_subnet_cidr = ["10.0.1.0/24", "10.0.2.0/24"] */
+  project               = var.project
+  environment           = var.environment
+  private_subnet_cidrs  = var.private_subnet_cidrs
+  public_subnet_cidrs   = var.public_subnet_cidrs
+  database_subnet_cidrs = var.database_subnet_cidrs
 }
